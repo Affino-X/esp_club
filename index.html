@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESP Club Moscu</title>
     <link rel="stylesheet" href="style.css">
+    
     <!-- <link href="https://db.onlinewebfonts.com/c/0757e3bdc2a20ec010e7feba28e4b5eb?family=Venti+CF+DEMO" rel="stylesheet">  -->
 </head>
 <body>
@@ -164,10 +165,39 @@
                     </div>
                     <div class="certificate-sender">
                         <input type="text" placeholder="Имя отправителя">
-                        <input type="email" placeholder="E-mail отправителя">
+
+
+                        <div class="input-container">
+                            <input type="email" id="email-input" class="styled-input">
+                            <div class="custom-placeholder">
+                              <span class="main-text">E-mail отправителя</span>
+                              <span class="sub-text">Отправим подтверждение заказа и оплаты</span>
+                            </div>
+                        </div>
+                          
+                          
                         <input type="tel" placeholder="Телефон отправителя">
                     </div>
+                    
                 </div>
+                <script>
+                  
+                    const input = document.getElementById("email-input");
+                    const placeholder = document.querySelector(".custom-placeholder");
+                    input.addEventListener("input", () => {
+                    if (input.value !== "") {
+                        placeholder.style.opacity = "0";  // Скрытие при вводе
+                    } else {
+                        placeholder.style.opacity = "1";  // Показываем, если поле пустое
+                    }
+                    });
+                    if (input.value !== "") {
+                        placeholder.style.opacity = "0";  // Если есть текст, скрыть placeholder
+                    } else {
+                        placeholder.style.opacity = "1";  // Если нет текста, показать placeholder
+                    }
+
+                </script>
                 <div class="certificate-form__step certificate-form--step-5">
                     <div class="form-step">
                         <div class="form-step__title">шаг 5</div>
@@ -295,5 +325,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>
